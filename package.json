@@ -2,7 +2,9 @@
 	"name": "javascript-development-environment",
 	"version": "1.0.0",
 	"description": "A JavaScript starter kit to help get started with new projects more efficiently",
-	"scripts": {},
+	"scripts": {
+		"start": "node buildscripts/srcServer.js"
+	},
 	"author": "Emmanuel Macharia",
 	"license": "MIT",
 	"dependencies": {},

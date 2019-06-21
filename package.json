@@ -3,7 +3,12 @@
 	"version": "1.0.0",
 	"description": "A JavaScript starter kit to help get started with new projects more efficiently",
 	"scripts": {
-		"start": "node buildscripts/srcServer.js"
+		"prestart": "node buildscripts/startMessage.js",
+		"start": "npm-run-all --parallel open:src",
+		"open:src": "node buildscripts/srcServer.js",
+		"security-check": "npm audit",
+		"localtunnel": "lt --port 3000",
+		"share": "npm-run-all --parallel open:src localtunnel"
 	},
 	"author": "Emmanuel Macharia",
 	"license": "MIT",

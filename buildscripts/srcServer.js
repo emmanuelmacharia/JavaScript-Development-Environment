@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
-import config from '../webpack.config.dev';
+import config from '../webpack.config.dev'; //eslint-disable-line
 
 const port = 3000;
 const app = express();
@@ -18,6 +18,8 @@ app.get('/', (req, res)=>{
 	res.sendFile(path.join(__dirname, '../src/index.html'))
 })
 
+
+/* eslint-disable no-console */
 app.listen(port, err => err ? console.log(err) : open('http://localhost:' + port))
 // lt--port 3000
 

@@ -4,17 +4,21 @@
 	"description": "A JavaScript starter kit to help get started with new projects more efficiently",
 	"scripts": {
 		"prestart": "babel-node buildscripts/startMessage.js",
-		"start": "npm-run-all --parallel open:src lint-watch",
+		"start": "npm-run-all --parallel open:src lint-watch test-watch",
 		"open:src": "babel-node buildscripts/srcServer.js",
 		"security-check": "npm audit fix",
 		"localtunnel": "lt --port 3000",
 		"share": "npm-run-all --parallel open:src localtunnel",
 		"lint": "esw webpack.config.* src buildscripts --color",
-		"lint-watch": "npm run lint -- --watch"
+		"lint-watch": "npm run lint -- --watch",
+		"test": "mocha --reporter progress buildscripts/testSetUp.js \"src/**/*.test.js\"",
+		"test-watch":"npm run test -- --watch"
 	},
 	"author": "Emmanuel Macharia",
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"fs": "0.0.1-security"
+	},
 	"devDependencies": {
 		"babel-cli": "^6.26.0",
 		"babel-core": "^6.17.0",

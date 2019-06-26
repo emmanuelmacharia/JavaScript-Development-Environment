@@ -1,6 +1,8 @@
 import path from 'path';
 // import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash'
+
 
 
 module.exports = {
@@ -15,9 +17,10 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',
-		filename: '[name].js'
+		filename: '[name].[chunkhash].js'
 	},
 	plugins: [
+		new WebpackMd5Hash(),
 		// new splitChunks({ name: "vendor" }),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',

@@ -1,8 +1,8 @@
 import path from 'path';
 // import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import WebpackMd5Hash from 'webpack-md5-hash'
-
+import WebpackMd5Hash from 'webpack-md5-hash'; //eslint-disable-line
+// import ExtractTextPlugin from 'extract-text-webpack-plugin'; //eslint-disable-line
 
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
 		filename: '[name].[chunkhash].js'
 	},
 	plugins: [
-		new WebpackMd5Hash(),
+		// new WebpackMd5Hash(),
 		// new splitChunks({ name: "vendor" }),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
@@ -36,7 +36,8 @@ module.exports = {
 				minifyJS: true,
 				minifyURLs: true
 			},
-			inject: true
+			inject: true,
+			trackJSToken: "7d0a82a0b7dc460c929198cd3e2045a1"
 		})
 		//Eliminate duplicate packages when bundling
 		// new webpack.optimize.DedupePlugin(),

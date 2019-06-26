@@ -13,6 +13,7 @@ const val = numeral(1000).format('$0.0.00')
 console.log(`I would pay ${val} for the dog biscuits`);
 
 
+
 // API CALL WITH DATA
 // DISPLAY USER DATA
 getUsers().then(result => {

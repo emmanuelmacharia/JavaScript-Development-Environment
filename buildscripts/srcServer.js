@@ -21,11 +21,11 @@ app.get('/', (req, res)=>{
 app.get('/users', (req, res) => {
 	res.json([
 		{
-			"id":1, "firstname": "Chester", "lastname": "Bennington", "email": "chester@linkinpark.com"
+			"id":1, "firstName": "Chester", "lastName": "Bennington", "email": "chester@linkinpark.com"
 		},{
-			"id":2, "firstname": "mike", "lastname":"shinoda", "email":"shinoda@linkinpark.com"},
+			"id":2, "firstName": "mike", "lastName":"shinoda", "email":"shinoda@linkinpark.com"},
 		{
-			"id":3, "firstname":"Joe", "lastname": "Han", "email": "Joehan@linkinpark.com"
+			"id":3, "firstName":"Joe", "lastName": "Han", "email": "Joehan@linkinpark.com"
 		}
 	])
 })

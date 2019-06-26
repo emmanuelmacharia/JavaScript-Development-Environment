@@ -4,7 +4,7 @@
 	"description": "A JavaScript starter kit to help get started with new projects more efficiently",
 	"scripts": {
 		"prestart": "babel-node buildscripts/startMessage.js",
-		"start": "npm-run-all --parallel open:src lint-watch test-watch",
+		"start": "npm-run-all --parallel open:src lint-watch test-watch start-mockapi",
 		"open:src": "babel-node buildscripts/srcServer.js",
 		"security-check": "npm audit fix",
 		"localtunnel": "lt --port 3000",
@@ -13,7 +13,9 @@
 		"lint-watch": "npm run lint -- --watch",
 		"test": "mocha --reporter progress buildscripts/testSetUp.js \"src/**/*.test.js\"",
 		"test-watch": "npm run test -- --watch",
-		"generate-mock-data" : "babel-node buildscripts/generateMockData"
+		"generate-mock-data" : "babel-node buildscripts/generateMockData",
+		"prestart-mockapi":"npm rum generate-mock-data",
+		"start-mockapi": "json-server --watch src/api/db.json --port 3001"
 	},
 	"author": "Emmanuel Macharia",
 	"license": "MIT",

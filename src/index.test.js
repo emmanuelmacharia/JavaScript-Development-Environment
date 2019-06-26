@@ -12,7 +12,7 @@ describe('index.html', () => {
 	it('should say Hello Express', done => {
 		const index = fs.readFileSync('./src/index.html', "utf-8");
 		jsdom.env(index,(err, window) => {
-			const p = window.document.getElementsByTagName('p')[0]
+			const p = window.document.getElementsByTagName('h1')[0]
 			expect(p.innerHTML).to.equal("Hello Express");
 			done();
 			window.close();

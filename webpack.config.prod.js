@@ -1,21 +1,24 @@
 import path from 'path';
-// import { config } from 'webpack'
+// import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+
 
 module.exports = {
 	mode: "production",
 	devtool: 'source-map',
 	// noInfo: false,
-	entry: [
-		path.resolve(__dirname, 'src/index')
-	],
+	entry: {
+		main: path.resolve(__dirname, 'src/index'),
+		vendor: path.resolve(__dirname, 'src/vendor')
+	},
 	target: 'web',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/',
-		filename: 'bundle.js'
+		filename: '[name].js'
 	},
 	plugins: [
+		// new splitChunks({ name: "vendor" }),
 		new HtmlWebpackPlugin({
 			template: 'src/index.html',
 			minify: {
@@ -31,7 +34,7 @@ module.exports = {
 				minifyURLs: true
 			},
 			inject: true
-		}),
+		})
 		//Eliminate duplicate packages when bundling
 		// new webpack.optimize.DedupePlugin(),
 		//Minify

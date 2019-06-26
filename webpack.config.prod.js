@@ -1,5 +1,6 @@
 import path from 'path';
 // import { config } from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 module.exports = {
 	mode: "production",
@@ -15,10 +16,27 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	plugins: [
+		new HtmlWebpackPlugin({
+			template: 'src/index.html',
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeRedundantAttributes: true,
+				useShortDoctype: true,
+				removeEmptyAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				keepClosingSlash:true,
+				minifyCSS: true,
+				minifyJS: true,
+				minifyURLs: true
+			},
+			inject: true
+		}),
 		//Eliminate duplicate packages when bundling
 		// new webpack.optimize.DedupePlugin(),
 		//Minify
 		// new config.optimization.minimize()
+
 	],
 	module: {
 		rules: [
